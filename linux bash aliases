@@ -1,0 +1,69 @@
+#bashrc_youtube-dl
+#updated by Richard van der Heijden on 24-mei-2020
+
+# Youtube-DL
+alias y-d="youtube-dl"
+
+# Youtube-Dl update
+alias y-up="sudo youtube-dl -U"
+
+# Remove Youtube-DL cache
+alias y-rc="youtube-dl --rm-cache-dir"
+
+# Shows the version of Youtube-DL
+alias y-v="youtube-dl --version" 
+
+### Set the folders for the downloaded files
+export video_folder="~/mounts/NTFS/SSD2/Downloads/Video"
+export audio_folder="~/mounts/NTFS/SSD2/Downloads/Audio"
+
+### Set variables for youtube-dl
+# for thumbnails
+export et="--embed-thumbnail"
+export wt="--write-thumbnail"
+
+# For output
+export mof="--merge-output-format"
+export op="--output"
+export rf="--restrict-filenames"
+export no="--no-overwrites"
+export nm="--no-mtime"
+
+# For audio
+export af="--audio-format"
+export am="--add-metadata"
+export aq="--audio-quality"
+### End of set variables for youtube-dl
+
+### Youtube-DL video
+# Download video with a maximum resultion of 720 and with the best audio
+alias yv-sd="youtube-dl -f bestvideo[height=720]+bestaudio  --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+
+# Download video with a maximum resultion of 1080 and with the best audio
+alias yv-hd="youtube-dl -f bestvideo[height=1080]+bestaudio --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+
+# Download video default can be used for twitch
+alias yv-df="youtube-dl --write-thumbnail --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+
+# Youtube-DL download video playlist with a maximum resultion of 1080 (HD)
+alias yv-pl="youtube-dl -f bestvideo[height=1080]+bestaudio --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(playlist_title)s/%(playlist_index)s - %(title)s.%(ext)s' " 
+
+### audio files download
+# Youtube-DL extract audio file from video as mp3 format with thumbnail embedded in file with a bitrate of 320kbps and use mp3gain to normalize file till there is no clipping.
+alias ya-mp3="youtube-dl -x --audio-format mp3  --restrict-filenames --embed-thumbnail --add-metadata --audio-quality 320k --output '$audio_folder/mp3/%(uploader)s/%(title)s.%(ext)s' --exec 'mp3gain -d 20 -r -k -T {}' "
+
+# Youtube_DL extract audio file from video as flac format.
+alias ya-flac="youtube-dl -x --audio-format flac --restrict-filenames --add-metadata --write-thumbnail --output '$audio_folder/flac/%(uploader)s/%(title)s.%(ext)s' "
+
+# Youtube-DL playlist downloaad to .mp3 @ 320kbps with uploader, playlisttitle and playlistindex folder mp3 with thumbnail and metadata. 
+alias ya-pmp3="youtube-dl -x --audio-format mp3  --restrict-filenames --embed-thumbnail --add-metadata --audio-quality 320k --no-overwrites --no-mtime --exec 'mp3gain -d 20 -r -k -T {}' --output '$audio_folder/mp3/playlist/%(uploader)s/%(playlist_title)s/%(playlist_index)s - %(title)s.%(ext)s' "
+
+# mp3gain for selected folder volume at max. 95 db without clipping (-d 6 89,0 db + 6 db = 100 db) (-r apply track gain) (-k automatically lower Track/Album gain to not clip audio) (-T mp3gain directly modifies mp3 file).
+alias mp3g="mp3gain -d 20 -r -k -T *mp3"
+
+# MP3 download without using mp3gain.
+alias ya-ng="youtube-dl -x --audio-format mp3  --restrict-filenames --embed-thumbnail --add-metadata --audio-quality 320k --output '$audio_folder/mp3/%(uploader)s/%(title)s.%(ext)s' "
+
+### Download videos as a mp4 file.
+alias yv-mp4hd="youtube-dl -f 'bestvideo[ext=mp4][height=1080]+bestaudio[ext=m4a]/mp4' --write-thumbnail --output '/home/richard/mounts/NTFS/SSD2/Downloads/Video/%(uploader)s/%(title)s.%(ext)s' "
+alias yv-mp4sd="youtube-dl -f 'bestvideo[ext=mp4][height=720]+bestaudio[ext=m4a]/mp4'  --write-thumbnail --output '/home/richard/mounts/NTFS/SSD2/Downloads/Video/%(uploader)s/%(title)s.%(ext)s' "
