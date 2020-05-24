@@ -14,8 +14,8 @@ alias y-rc="youtube-dl --rm-cache-dir"
 alias y-v="youtube-dl --version" 
 
 ### Set the folders for the downloaded files
-export video_folder="~/mounts/NTFS/SSD2/Downloads/Video"
-export audio_folder="~/mounts/NTFS/SSD2/Downloads/Audio"
+export video_folder="~/mounts/NTFS/SSD2/Downloads/Video" # set folder for video files
+export audio_folder="~/mounts/NTFS/SSD2/Downloads/Audio" # set folder for audio files
 
 ### Set variables for youtube-dl
 # for thumbnails
