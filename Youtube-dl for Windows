@@ -3,7 +3,7 @@
 rem set the location and name of download folder 
 set "df=D:\Downloads"
 set "vf=%df%\Video"
-set "af=%df%\Audio"
+set "auf=%df%\Audio"
 
 rem \\set the options for youtube-dl in variables
 set "af=--audio-format"
@@ -32,10 +32,10 @@ DOSKEY yup=youtube-dl -U
 rem Update youtube-dl 
 DOSKEY yrc=youtube-dl --rm-cache-dir 
 rem Clear the cache directory
-DOSKEY ya-mp3=youtube-dl -x %af% mp3  %bs% 2048 %nm% %np% %rf% %et% %am% %aq% 320k %o% %af%\%%(uploader)s\%%(title)s.%%(ext)s --exec "mp3gain /d 20 /w /r /k /t {}" $*
-DOSKEY ya-flac=youtube-dl -x %af% flac %rf% %nm% %np% %wt% %o% %af%\%%(uploader)s\%%(title)s.%%(ext)s $*
-DOSKEY ya-pmp3=youtube-dl -x %af% mp3  %nm% %np% %rf% %et% %am% %aq% 320k %no% --exec "mp3gain /d 20 /w /r /k /t {}" %o% %af%\%%(uploader)s\%%(playlist_title)s\%%(playlist_index)s - %%(title)s.%%(ext)s $*
-DOSKEY ya-ng=youtube-dl -x %af% mp3  %rf% %nm% %et% %am% %aq% 320k %o% %af%\%%(uploader)s\%%(title)s.%%(ext)s $*
+DOSKEY ya-mp3=youtube-dl -x %af% mp3  %bs% 2048 %nm% %np% %rf% %et% %am% %aq% 320k %o% %auf%\%%(uploader)s\%%(title)s.%%(ext)s --exec "mp3gain /d 20 /w /r /k /t {}" $*
+DOSKEY ya-flac=youtube-dl -x %af% flac %rf% %nm% %np% %wt% %o% %auf%\%%(uploader)s\%%(title)s.%%(ext)s $*
+DOSKEY ya-pmp3=youtube-dl -x %af% mp3  %nm% %np% %rf% %et% %am% %aq% 320k %no% --exec "mp3gain /d 20 /w /r /k /t {}" %o% %auf%\%%(uploader)s\%%(playlist_title)s\%%(playlist_index)s - %%(title)s.%%(ext)s $*
+DOSKEY ya-ng=youtube-dl -x %af% mp3  %rf% %nm% %et% %am% %aq% 320k %o% %auf%\%%(uploader)s\%%(title)s.%%(ext)s $*
 DOSKEY yv-mp4hd=youtube-dl -f bestvideo[ext=mp4][height=1080]+bestaudio[ext=m4a]/mp4 %rf% %nm% %wt% %o% %vf%\%%(uploader)s\%%(title)s.%%(ext)s $*
 DOSKEY yv-mp4sd=youtube-dl -f bestvideo[ext=mp4][height=720]+bestaudio[ext=m4a]/mp4 %rf% %nm% %wt% %o% %vf%\%%(uploader)s\%%(title)s.%%(ext)s $*
 
