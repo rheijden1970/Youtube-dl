@@ -37,20 +37,20 @@ export aq="--audio-quality"
 
 ### Youtube-DL video
 # Download video with a maximum resolution of 720 and with the best audio
-alias yv-sd="youtube-dl -f bestvideo[height=720]+bestaudio  --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+alias yv-sd="youtube-dl -f bestvideo[height=720]+bestaudio $wt $mof mkv $op '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
 
 # Download video with a maximum resulution of 1080 and with the best audio
-alias yv-hd="youtube-dl -f bestvideo[height=1080]+bestaudio --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+alias yv-hd="youtube-dl -f bestvideo[height=1080]+bestaudio $wt $mof mkv $op '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
 
 # Download video default can be used for twitch
-alias yv-df="youtube-dl --write-thumbnail --output '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
+alias yv-df="youtube-dl --write-thumbnail $op '$video_folder/%(uploader)s/%(title)s.%(ext)s' "
 
 # Youtube-DL download video playlist with a maximum resulution of 1080 (HD)
-alias yv-pl="youtube-dl -f bestvideo[height=1080]+bestaudio --write-thumbnail --merge-output-format mkv --output '$video_folder/%(uploader)s/%(playlist_title)s/%(playlist_index)s - %(title)s.%(ext)s' " 
+alias yv-pl="youtube-dl -f bestvideo[height=1080]+bestaudio $wt $mof mkv $op '$video_folder/%(uploader)s/%(playlist_title)s/%(playlist_index)s - %(title)s.%(ext)s' " 
 
 ### audio files download
 # Youtube-DL extract audio file from video as mp3 format with thumbnail embedded in file with a bitrate of 320kbps and use mp3gain to normalize file till there is no clipping.
-alias ya-mp3="youtube-dl -x --audio-format mp3  --restrict-filenames --embed-thumbnail --add-metadata --audio-quality 320k --output '$audio_folder/mp3/%(uploader)s/%(title)s.%(ext)s' --exec 'mp3gain -d 20 -r -k -T {}' "
+alias ya-mp3="youtube-dl -x --audio-format mp3  $rf $et --add-metadata --audio-quality 320k --output '$audio_folder/mp3/%(uploader)s/%(title)s.%(ext)s' --exec 'mp3gain -d 20 -r -k -T {}' "
 
 # Youtube_DL extract audio file from video as flac format.
 alias ya-flac="youtube-dl -x --audio-format flac --restrict-filenames --add-metadata --write-thumbnail --output '$audio_folder/flac/%(uploader)s/%(title)s.%(ext)s' "
